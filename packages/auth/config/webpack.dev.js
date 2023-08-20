@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { dependencies } = require("../package.json");
 const commonConfig = require("./webpack.common");
-const developmentPORT = 8081;
+const developmentPORT = 8082;
+
 const devConfig = {
   mode: "development",
   output: {
@@ -15,10 +16,10 @@ const devConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "marketing",
+      name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./MarketingApp": "./src/bootstrap.js",
+        "./AuthApp": "./src/bootstrap.js",
       },
       shared: dependencies,
     }),

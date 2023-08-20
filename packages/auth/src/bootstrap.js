@@ -1,4 +1,4 @@
-console.log("Marketing Microfronend Application Started");
+console.log("Auth Microfronend Application Started");
 import React from "react";
 import ReactDOM from "react-dom";
 import { createMemoryHistory, createBrowserHistory } from "history";
@@ -16,7 +16,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 
   return {
     onParentNavigate({ pathname: parentPathname }) {
-      console.log("Marketing.bootstap: OnNavigate", parentPathname);
+      console.log("Auth.bootstap: OnNavigate", parentPathname);
       const { pathname } = history.location;
       pathname !== parentPathname ? history.push(parentPathname) : null;
     },
@@ -26,7 +26,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 // If we are in development and in isolation,
 // call mount immediately
 if (process.env.NODE_ENV === "development") {
-  const devRoot = document.querySelector("#_marketing-dev-root");
+  const devRoot = document.querySelector("#_auth-dev-root");
 
   if (devRoot) {
     mount(devRoot, { defaultHistory: createBrowserHistory() });
